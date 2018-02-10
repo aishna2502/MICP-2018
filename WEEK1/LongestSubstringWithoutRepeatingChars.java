@@ -101,7 +101,7 @@ public class LongestSubstringWithoutRepeatingChars {
 		return maxlen;
 	}
 	
-	//
+	//5. TEST
 	
 	@Test
 	public void test() { //all passed
