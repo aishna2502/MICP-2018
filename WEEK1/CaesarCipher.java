@@ -32,7 +32,7 @@ import org.junit.Test;
 
 /*
  2. EXAMPLES:
- 	1.1 Valid Input:
+ 	2.1 Valid Input:
  	
 	 	a. 1:aC4 -> bD5
 	 	b. 2:Zy9 -> Ba1
@@ -41,7 +41,7 @@ import org.junit.Test;
 	  	e. 27:a0 -> b7
 	  	f. 0:ab27 -> ab27
 	 
-	  1.2 Invalid Input:
+	  2.2 Invalid Input:
 	  
 	  	a. :abc
 	  	b. 2a
