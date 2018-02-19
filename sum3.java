@@ -41,7 +41,7 @@ SAMPLE OUTPUT:
 	2.1 Valid Input:
 	
 	 	a. [2, 1, 0, -1] -> [ [-1, 0, 1] ]
-	 	b. [0, 0, 0, 0] -> [[0, 0, 0], [0, 0, 0]]
+	 	b. [0, 0, 0, 0] -> [[0, 0, 0]]
 	 	
 	2.2 Invalid Input:
 	  
@@ -105,8 +105,10 @@ public class sum3 {
 					ans.add(arr[i]);
 					ans.add(arr[left]);
 					ans.add(arr[right]);
-					found=true;
-					result.add(ans);
+					if(!result.contains(ans)){
+						found=true;
+						result.add(ans);
+					}
 					right--;
 					left++;
 				}
@@ -135,19 +137,16 @@ public class sum3 {
 			List<Integer> ans2 = new ArrayList<>();
 			List<Integer> ans3 = new ArrayList<>();
 			
-			ans3.add(-1);
-			ans3.add(0);
-			ans3.add(1);
-			ans2.add(-1);
-			ans2.add(-1);
-			ans2.add(2);
 			ans1.add(-1);
 			ans1.add(0);
 			ans1.add(1);
 			
+			ans2.add(-1);
+			ans2.add(-1);
+			ans2.add(2);
+			
 			result.add(ans2);
 			result.add(ans1);
-			result.add(ans3);
 			assertEquals(result, ThreeSum(new int[]{-1, 0, 1, 2, -1, -4}));	
 	}
 	
@@ -156,20 +155,13 @@ public class sum3 {
 			
 			List<List<Integer>> result = new ArrayList<>();
 			List<Integer> ans1 = new ArrayList<>();
-			List<Integer> ans2 = new ArrayList<>();
-			List<Integer> ans3 = new ArrayList<>();
-			List<Integer> ans4 = new ArrayList<>();
 			
 			ans1.add(0);
 			ans1.add(0);
 			ans1.add(0);
 			
-			ans2.add(0);
-			ans2.add(0);
-			ans2.add(0);
-
 			result.add(ans1);
-			result.add(ans2);
+//			result.add(ans2);
 			
 			assertEquals(result, ThreeSum(new int[]{0,0,0,0}));	
 	}
@@ -185,6 +177,20 @@ public class sum3 {
     public static void testNoAnswer()
     {
 		int arr[] = new int[]{-1,1,2,-2};
+        assertEquals(null,ThreeSum(arr));
+    }
+	
+	@Test(enabled=true)
+    public static void testSmallLen()
+    {
+		int arr[] = new int[]{0};
+        assertEquals(null,ThreeSum(arr));
+    }
+	
+	@Test(enabled=true)
+    public static void testSmallAndInvalidLen()
+    {
+		int arr[] = new int[]{10};
         assertEquals(null,ThreeSum(arr));
     }
 	
