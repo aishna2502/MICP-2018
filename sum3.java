@@ -107,7 +107,8 @@ public class sum3 {
 					ans.add(arr[right]);
 					found=true;
 					result.add(ans);
-					break;
+					right--;
+					left++;
 				}
 				else if(arr[i] + arr[left] + arr[right]<0){
 					left++;
@@ -132,14 +133,21 @@ public class sum3 {
 			List<List<Integer>> result = new ArrayList<>();
 			List<Integer> ans1 = new ArrayList<>();
 			List<Integer> ans2 = new ArrayList<>();
+			List<Integer> ans3 = new ArrayList<>();
+			
+			ans3.add(-1);
+			ans3.add(0);
+			ans3.add(1);
 			ans2.add(-1);
 			ans2.add(-1);
 			ans2.add(2);
 			ans1.add(-1);
 			ans1.add(0);
 			ans1.add(1);
+			
 			result.add(ans2);
 			result.add(ans1);
+			result.add(ans3);
 			assertEquals(result, ThreeSum(new int[]{-1, 0, 1, 2, -1, -4}));	
 	}
 	
