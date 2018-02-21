@@ -99,7 +99,6 @@ public class sum3 {
 			int left = i+1;
 			int right = n-1;
 			while(left<right){
-//				System.out.println("*");
 				if(arr[i] + arr[left] + arr[right]==0){
 					List<Integer> ans = new ArrayList<>();
 					ans.add(arr[i]);
@@ -122,7 +121,6 @@ public class sum3 {
 		}
 		
 		if(!found){
-//			System.out.println("&&");
 			return null;
 		}
 		
@@ -186,6 +184,28 @@ public class sum3 {
 		int arr[] = new int[]{0};
         assertEquals(null,ThreeSum(arr));
     }
+	
+	@Test
+	 public static void testRandom()
+	    {
+		
+			
+			List<List<Integer>> result = new ArrayList<>();
+			int arr[] = new int[]{-4,0,1,3,4};
+			List<Integer> ans1 = new ArrayList<>();
+			ans1.add(-4);
+			ans1.add(0);
+			ans1.add(4);
+			List<Integer> ans2 = new ArrayList<>();
+			ans2.add(-4);
+			ans2.add(1);
+			ans2.add(3);
+			
+			result.add(ans1);
+			result.add(ans2);
+			
+	        assertEquals(result,ThreeSum(arr));
+	    }
 	
 	@Test(enabled=true)
     public static void testSmallAndInvalidLen()
