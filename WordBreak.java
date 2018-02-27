@@ -44,24 +44,6 @@ O/P - TRUE
 
 public class WordBreak {
 
-//	public static void main(String[] args) throws Exception {
-//		// TODO Auto-generated method stub
-//		Scanner s = new Scanner(System.in);
-//		HashSet<String> set = new HashSet<>();
-//		int n = s.nextInt();
-//		for(int i=0;i<n;i++){
-//			set.add(s.next());
-//		}
-//		
-//		String input = s.next();
-//		if(wordBreak(input,set)){
-//			System.out.println("True");
-//		}
-//		else{
-//			System.out.println("False");
-//		}
-//	}
-	
 	public static boolean wordBreak(String str, HashSet<String> set) throws Exception{
 		
 		if(set==null||str==null){
@@ -99,6 +81,8 @@ public class WordBreak {
 		return false;
 	}
 
+	//3. TEST
+	
 	@Test(enabled = true)
 	public void checkValidTrue() throws Exception{
 		HashSet<String> set = new HashSet<>(Arrays.asList("he","heart","cat"));
