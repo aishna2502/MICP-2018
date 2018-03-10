@@ -44,16 +44,25 @@ public class Palindrome {
 		if(start==null){
 			return true;
 		}
-		
+		if(start.next==null){
+			return false;
+		}
+		Node last = start;
 		Node temp = start;
 		int n = (length/2);
-		int l = 1;
+		int l = 0;
 		while(l<n){
 			l++;
+			last = temp;
 			temp = temp.next;
 		}
+		
+		last.next = null;
 		Node second = reverse(temp);
+		System.out.println();
 		boolean result =  is_palindrome(start,second);
+		Node newOne = reverse(second);
+		last.next = newOne;
 		return result;
 	}
 	
@@ -71,6 +80,7 @@ public class Palindrome {
 		Node n3 = new Node(1);
 		n1.next = n2;
 		n2.next = n3;
+		length = 3;
 		assertEquals(true, palindrome(n1));
 	}
 	
@@ -81,6 +91,7 @@ public class Palindrome {
 		Node n3 = new Node(3);
 		n1.next = n2;
 		n2.next = n3;
+		length = 3;
 		assertEquals(false, palindrome(n1));
 	}
 	
@@ -90,7 +101,7 @@ public class Palindrome {
 		Node n2 = new Node(2);
 		Node n3 = new Node(2);
 		Node n4 = new Node(1);
-		
+		length = 4;
 		n1.next = n2;
 		n2.next = n3;
 		n3.next = n4;
@@ -103,13 +114,19 @@ public class Palindrome {
 		Node n2 = new Node(2);
 		Node n3 = new Node(3);
 		Node n4 = new Node(4);
-		
+		length = 4;
 		n1.next = n2;
 		n2.next = n3;
 		n3.next = n4;
 		assertEquals(false, palindrome(n1));
 	}
 	
+	@Test
+	public void onePaliWrong(){
+		Node n1 = new Node(1);
+		length = 1;
+		assertEquals(false, palindrome(n1));
+	}
 	
 
 }
