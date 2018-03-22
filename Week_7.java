@@ -4,11 +4,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 /*
+
 Microsoft Interview Coaching Pilot 2018 (MICP 2018)
 Author: Aishna Gupta
 Language: JAVA
 
-************WEEK 7************
+************WEEK 6************
 
 Problem description: Design a vending machine.
 Clarify: No more restrictions, just design a general vending machine we are familiar with.
