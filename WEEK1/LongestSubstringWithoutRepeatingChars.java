@@ -12,7 +12,7 @@ import org.junit.Test;
  Author: Aishna Gupta
  Language: JAVA
  
- ************WEEK 1************
+ ************ WEEK 1 ************
  
 Longest Substring Without Repeating Characters
 1. TALK
