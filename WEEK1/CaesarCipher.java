@@ -4,7 +4,7 @@ package WEEK1;
  Author: Aishna Gupta
  Language: JAVA
  
- ************ WEEK 1 ************
+ ************WEEK 1************
 
 CAESAR CIPHER
 
@@ -28,7 +28,10 @@ CAESAR CIPHER
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.security.InvalidAlgorithmParameterException;
+
 import org.junit.Test;
+import org.omg.CORBA.DynAnyPackage.Invalid;
 
 /*
  2. EXAMPLES:
@@ -81,25 +84,22 @@ import org.junit.Test;
 
 public class CaesarCipher {
 
-	public static String caesarCipher(String str){
+	public static String caesarCipher(String str) throws Exception{
 		
 		String ans = "";
 		
-		if(str.equals(null)){
+		if(str==null){
 			return null;
-		}
-		
+		}		
 		String[] dig = str.split(":");
-		
 		String string;
 		int digit;
-		
 		try{
 			string = dig[1];
 			digit = Integer.parseInt(dig[0]);
 		}
 		catch(Exception e){
-			return e.getMessage();
+			throw e;
 		}
 		
 		for(int i = 0; i < string.length() ; i ++ ){
@@ -147,7 +147,7 @@ public class CaesarCipher {
 
 			return temp;
 		}
-	return ' ';
+		return ' ';
 	}
 	
 	public static int shiftBy(int shift, int by){
@@ -156,27 +156,25 @@ public class CaesarCipher {
 		}
 		return (shift%by);
 	}
-
 	
 	@Test
-	public void test() { //all passed
+	public void test() throws Exception { //all passed
 		assertEquals("bD5", caesarCipher("1:aC4"));
 		assertEquals("Ba1", caesarCipher("2:Zy9"));
 		assertEquals("Zy8", caesarCipher("-2:Ba0"));
 		assertEquals("b7", caesarCipher("27:a0"));
 		assertEquals("c#", caesarCipher("1:b#"));
 		assertEquals("ab27", caesarCipher("0:ab27"));
-		assertEquals("st,r20 de;1", caesarCipher("-89:de,c19 op;0"));
-		
-		
+		assertEquals("st,r20 de;1", caesarCipher("-89:de,c19 op;0"));		
 	}
 	
 	/*
 	 5. TEST CASES
 	 */
 	
-	@Test
+	@Test(expected = Exception.class)
 	public void testException() throws Exception{ //all passed
+		caesarCipher(null);
 		caesarCipher(":");
 		caesarCipher(":abc");
 		caesarCipher("2a:");
